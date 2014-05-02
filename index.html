@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script language="javascript">
+var peso,estatura,imc;
+
+function valorImc(){
+	peso=document.getElementById("textPeso").value;
+ peso=parseFloat(document.getElementById("textPeso").value);
+estatura=document.getElementById("textEstatura").value;
+ estatura=parseFloat(document.getElementById("textEstatura").value);
+ imc=peso/(estatura*estatura);
+ document.getElementById("textResul").value=imc;
+ if (imc<18) {
+ 	alert("Bajo peso. Necesario valorar signos de desnutricion");
+ }
+ else{
+ if (imc>=18 && imc<=24.9)
+ {
+ 	alert("Normal");
+ }
+ if (imc>=25 && imc<=26.5) 
+ 	{
+     alert("Sobrepeso");
+ 	}
+ if (imc>=27 && imc<=27.9)
+  {
+   alert("Obesidad");
+ }	
+ if(imc>=28 && imc<=29)
+ {
+alert("Obesidad grado I. Riesgo relativo alto para desarollar enfermedades cardiovasculares");
+ }
+ if (imc>=30 && imc<=39.9) 
+ 	{
+     alert("Obesidad grado II. Riesgo relativo muy alto para el desarrollo de enfermedades cardiovasculares");
+ 	}
+ 	if (imc>=40) 
+ 	{
+     alert("Obesidad grado III. Riesgo relativo muy alto para el desarrollo de enfermedades cardiovasculares");
+ 	}
+}
+}
+
+
+
+</script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Página uno</h1>
+	</div>
+	<div data-role="content">	
+		<table width="400" border="1">
+  <tr>
+    <td>PESO EN KG</td>
+    <td><div data-role="fieldcontain">
+      <label for="textinput"></label>
+      <input type="text" name="textPeso" id="textPeso" value=""  />
+    </div></td>
+  </tr>
+  <tr>
+    <td>ESTATURA EM MTS</td>
+    <td><div data-role="fieldcontain">
+      <label for="textinput2"></label>
+      <input type="text" name="textEstatura" id="textEstatura" value=""  />
+    </div></td>
+  </tr>
+  <tr>
+    <td><button  onClick="valorImc()">CALCULAR</button></td>
+    <td><div data-role="fieldcontain">
+      <label for="textinput3"></label>
+      <input type="text" name="textResul" id="textResul" value=""disabled="disabled"  />
+    </div></td>
+  </tr>
+</table>
+		
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+
+</body>
+</html>
